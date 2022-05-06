@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import Container from "@mui/material/Container";
-
-import Header from "./Header";
-import Content from "./Content";
 import {
   fetchLikedFormSubmissions,
   onMessage,
   saveLikedFormSubmission,
 } from "./service/mockServer";
+import Header from "./Header";
+import Content from "./Content";
 import Toast from "./Toast";
+import Container from "@mui/material/Container";
 
 function App() {
   const [formSubmission, setformSubmission] = useState();
@@ -33,8 +32,15 @@ function App() {
   });
 
   const handleLikeToast = () => {
-    saveLikedFormSubmission(formSubmission);
-    setOpen(false);
+    async function storeLikedSubmissions() {
+      const response = await saveLikedFormSubmission(formSubmission);
+      if (response.status === 202) {
+        setOpen(false);
+      } else {
+        storeLikedSubmissions();
+      }
+    }
+    storeLikedSubmissions();
   };
 
   const handleCloseToast = (event, reason) => {

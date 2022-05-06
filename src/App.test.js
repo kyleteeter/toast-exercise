@@ -1,10 +1,10 @@
-import React from 'react';
-import { screen, render } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { screen, render } from "@testing-library/react";
+import App from "./App";
 
-test('renders header text', () => {
+test("renders header text", () => {
   render(<App />);
 
-  const heading  = screen.getByRole('heading', { name: /toast exercise/i});
+  const heading = screen.getByRole("heading", { name: /toast exercise/i });
   expect(heading).toBeInTheDocument();
 });

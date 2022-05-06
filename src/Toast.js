@@ -1,8 +1,15 @@
-import { Button, IconButton, Snackbar } from "@mui/material";
+import { Button, IconButton, Snackbar, Stack } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 function Toast({ handleCloseToast, formSubmission, open, handleLikeToast }) {
-  
+  const displayMessage = (data) => (
+    <>
+      <p style={{ fontWeight: "bold" }}>
+        {data?.firstName} {data?.lastName}
+      </p>
+      <p>{data?.email}</p>
+    </>
+  );
 
   const action = (
     <>
@@ -21,13 +28,15 @@ function Toast({ handleCloseToast, formSubmission, open, handleLikeToast }) {
   );
 
   return (
-    <Snackbar
-      open={open}
-      autoHideDuration={6000}
-      onClose={handleCloseToast}
-      message={formSubmission?.data.firstName}
-      action={action}
-    />
+    <Stack spacing={2} sx={{ width: "100%" }}>
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleCloseToast}
+        message={displayMessage(formSubmission?.data)}
+        action={action}
+      />
+    </Stack>
   );
 }
 
