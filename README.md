@@ -20,6 +20,10 @@ For this app I have continued the use of MUI and based on the prototype done sty
 
 * Being able to sort and/or filter the liked form submission would also make things easier for the user once they have a lot of cards on display. 
 
+### Tests
+
+All of the preset tests should pass for the app. 
+
 ---
 
 # Toast Exercise
