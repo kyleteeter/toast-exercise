@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { Card, CardContent } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
+
 export default function Content({ likedFormSubmissions }) {
   return (
     <Box sx={{ marginTop: 3 }}>
@@ -26,7 +27,7 @@ export default function Content({ likedFormSubmissions }) {
                 </Card>
               </Grid>
             ))
-          : null}
+          : <Grid item xs={6}>Loading...</Grid>}
       </Grid>
     </Box>
   );

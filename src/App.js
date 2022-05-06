@@ -16,15 +16,17 @@ function App() {
 
   useEffect(() => {
     async function getLikedSubmissions() {
-      const response = await fetchLikedFormSubmissions();
-      if (response.status === 200) {
+      try {
+        const response = await fetchLikedFormSubmissions();
         setLikedFormSubmissions(response);
-      } else {
-        getLikedSubmissions();
+      } catch (error) {
+        console.log(
+          `Warning: There has been a ${error.message} while fetching the liked submissions.`
+        );
       }
     }
     getLikedSubmissions();
-  }, [likedFormSubmissions, open]);
+  }, [likedFormSubmissions]);
 
   onMessage((form) => {
     setformSubmission(form);
@@ -33,10 +35,14 @@ function App() {
 
   const handleLikeToast = () => {
     async function storeLikedSubmissions() {
-      const response = await saveLikedFormSubmission(formSubmission);
-      if (response.status === 202) {
+      try {
+        const response = await saveLikedFormSubmission(formSubmission);
+        setLikedFormSubmissions(response);
         setOpen(false);
-      } else {
+      } catch (error) {
+        console.log(
+          `Warning: There has been a ${error.message}. While submitting you LIKE.`
+        );
         storeLikedSubmissions();
       }
     }
