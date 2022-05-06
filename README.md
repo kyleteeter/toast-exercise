@@ -1,3 +1,27 @@
+# Developer Notes
+
+To see the full project detail please scroll to the botton of the ReadMe.
+
+### Comments 
+
+The code has specific comments throughtout that will hopefully help you get an idea of why each component was built the way it is. You will find most of the changes and comments in the App.js, Content.js, and Toast.js files. 
+
+### Styling
+
+For this app I have continued the use of MUI and based on the prototype done styling as for mobile. Given more time, it would be nice to have a tablet and desktop version adds columns to the grid layout of the cards.
+
+### UI Thoughts 
+
+* With such an unstable "server" ideally I think it would make sense to give a little more feedback to the user about what is happening. Potentially some kind of modal might be useful.
+
+* Currently there isn't a great way of hangling multiple submissions back to back. Instead of simple replacing the content in the toast it might make more sense to allow multiple toast. With a limit of the number that are displayed. 
+
+* Another feature that would be nice in my opinion but is not currently written into the "server" is to be able to delete the liked form submission from the main page. That way if the user no longer need to view that submission the can "Unlike" it. 
+
+* Being able to sort and/or filter the liked form submission would also make things easier for the user once they have a lot of cards on display. 
+
+---
+
 # Toast Exercise
 
 Welcome to the toast exercise! We just got a new project from the Product team to implement
