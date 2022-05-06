@@ -16,8 +16,8 @@ export default function Content({ likedFormSubmissions }) {
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {likedFormSubmissions
           ? Object.values(likedFormSubmissions).map((submission) => (
-              <Grid item xs={12}>
-                <Card key={submission.id}>
+              <Grid item xs={12} key={submission.id}>
+                <Card>
                   <CardContent>
                     <Typography variant='h5' component='div'>
                       {submission.data.firstName} {submission.data.lastName}
